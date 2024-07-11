@@ -57,7 +57,7 @@ const userController={
             };
 
             const sendVerificationEmail = (user, token) => {
-                const verificationLink = `http://localhost:5000/user/verify-email?token=${token}`;
+                const verificationLink = `https://b-bbackend.vercel.app/user/verify-email?token=${token}`;
 
                 const mailOptions = {
                     from: process.env.GMAIL,
@@ -126,7 +126,7 @@ const userController={
             }
             user.isVerified = true;
             await user.save();
-            return res.redirect('http://localhost:5173/Login')
+            return res.redirect('https://b-bfrontend.vercel.app/Login')
         } catch (err) {
             return res.status(500).json({ msg: err.message });
         }
