@@ -15,15 +15,18 @@
 
   app.use(cors({
     origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
+      if (!origin) return callback(null, true); // Allow non-browser requests
       if (allowedOrigins.indexOf(origin) === -1) {
         const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
         return callback(new Error(msg), false);
       }
       return callback(null, true);
-    }
+    },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Authorization,Content-Type',
+    credentials: true, // Allow cookies and authorization headers
   }));
-  app.use(express.json())
+    app.use(express.json())
 
   //Mongo Db Conncetion
 
