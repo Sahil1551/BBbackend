@@ -11,7 +11,7 @@
   app.use(fileUpload({
     useTempFiles: true
   }));
-  const allowedOrigins = ['https://backend-delta-topaz.vercel.app', 'https://frontend-snowy-pi-75.vercel.app','http://localhost:5173'];
+  const allowedOrigins = ['https://backend-delta-topaz.vercel.app', 'https://b-bfrontend.vercel.app/','http://localhost:5173'];
 
   app.use(cors({
     origin: function (origin, callback) {
